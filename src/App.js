@@ -2,9 +2,10 @@ import React from 'react'
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyles from './components/globals/globalStyles';
+
 // components 
 import Navbar from './components/Navbar';
-//import Sidebar from './components/Sidebar';
+import Sidebar from './components/Sidebar';
 
 // pages 
 import HomePage from './pages/HomePage';
@@ -12,16 +13,25 @@ import ContactPage from './pages/ContactPage';
 import AboutMe from './pages/AboutMe';
 import ProjectsPage from './pages/ProjectsPage';
 import ErrorPage from './pages/ErrorPage';
+import Overlay from './components/Overlay';
 
 function App() {
+
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen)
+  };
+
   return (
     <div>
       <GlobalStyles />
       <Router>
-      <Navbar />
+      <Navbar toggleSidebar = {toggleSidebar} />
+      <Sidebar isOpen= {isOpen} toggleSidebar = {toggleSidebar}  />
+        <Overlay  isOpen = {isOpen} />
         <Switch>
           <Route path="/" exact>
-            <HomePage />
+            <HomePage isOpen={isOpen} />
           </Route>
           <Route path="/contact">
             <ContactPage />

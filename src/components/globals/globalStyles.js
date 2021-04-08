@@ -27,10 +27,13 @@ const Globals = createGlobalStyle`
     --max-width: 1363px;
 };
 
+    --transition: all 2s ease-in-out;
+
 body {
     font-size: 62.5%;
     font-family: var(--main-font);
     max-width: var(--max-width);
+
 };
 
 a {
@@ -53,24 +56,44 @@ h3 {
 
 // ##### BUTTONS
 
-.btn {
-    display: block;
-    background-color: var(--clr-dirty-blue);
+.btn:link,
+.btn:visited {
+    display: inline-block;
     align-self: flex-start;
-    padding: .7rem 2rem;
-    border-radius: 5px;
+    padding: .7rem .1rem;
+    border-radius: 1px;
     font-size: 1rem;
-    border: none;
-    position: relative;
-    overflow: hidden; 
+    position: relative; 
+    transition: all .5s ease-in-out;
+    letter-spacing: .2rem;
+    z-index: 1;
 };
 
-.btn::after {
+.btn:link::after,
+.btn:visited::after {
     content: '';
-    background-color: var(--clr-blue);
+    background-color: var(--clr-dirty-blue);
     position: absolute;
-    
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .45s;
+    z-index: -1;
 };
+
+.btn:hover::after,
+.btn:active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+};
+
+.overlay {
+    background-color: var(--clr-white);
+}
 
 
 
