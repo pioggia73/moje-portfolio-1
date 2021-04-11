@@ -13,7 +13,7 @@ const Navbar = ({toggleSidebar}) => {
                   <button className='toggle-btn' onClick={toggleSidebar} >
                     <FaBars />
                     </button>
-                  <NavLinks styleClass='nav-links' />
+                  <NavLinks styleClass='nav-links' onClick={toggleSidebar}/>
               </nav>
           </Wrapper>
     )

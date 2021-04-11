@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import React from 'react';
 
 const links = [
 
@@ -24,7 +25,13 @@ const links = [
     }
 ];
 
+
+
+
 const tempLinks = links.map(link => {
+
+   
+
     return (
         <li key={link.id}>
             <Link to={link.url}>{link.text}</Link>
@@ -32,7 +39,8 @@ const tempLinks = links.map(link => {
     )
 });
 
-const NavLinks =  ({styleClass}) => {
+const NavLinks = ({styleClass}) => {
+ 
     return (
         <ul className={`page-links ${styleClass? styleClass : ''}`}>
             {tempLinks}

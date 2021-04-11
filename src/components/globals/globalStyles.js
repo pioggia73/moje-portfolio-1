@@ -27,18 +27,16 @@ const Globals = createGlobalStyle`
     --max-width: 1363px;
 };
 
-    --transition: all 2s ease-in-out;
-
 body {
     font-size: 62.5%;
     font-family: var(--main-font);
     max-width: var(--max-width);
-
 };
 
 a {
     color: var(--clr-white);
     text-decoration: none;
+    list-style-type: none;
 };
 
 h1, h3 {
