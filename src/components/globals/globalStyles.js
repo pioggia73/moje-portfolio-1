@@ -31,6 +31,7 @@ body {
     font-size: 62.5%;
     font-family: var(--main-font);
     max-width: var(--max-width);
+    line-height: 1.7;
 };
 
 a {
@@ -47,6 +48,8 @@ h1{
     font-size: calc(1.5rem + 1vw);
     line-height: 1.5;
 };
+
+h2 { font-size: calc(1.3rem + 1vw) };
 
 h3 {
     font-size: calc(1rem + 1vw);
