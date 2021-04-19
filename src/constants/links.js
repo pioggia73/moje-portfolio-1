@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
-import React from 'react';
+import React, {useContext} from 'react';
+import {AppContext} from '../context/context';
 
 const links = [
 
@@ -25,13 +26,8 @@ const links = [
     }
 ];
 
-
-
-
 const tempLinks = links.map(link => {
-
    
-
     return (
         <li key={link.id}>
             <Link to={link.url}>{link.text}</Link>
@@ -40,9 +36,11 @@ const tempLinks = links.map(link => {
 });
 
 const NavLinks = ({styleClass}) => {
+     const {closeOverlay} = useContext(AppContext);
+     console.log(closeOverlay)
  
     return (
-        <ul className={`page-links ${styleClass? styleClass : ''}`}>
+        <ul className={`page-links ${styleClass? styleClass : ''}`}  onClick = {closeOverlay}>
             {tempLinks}
         </ul>
     )

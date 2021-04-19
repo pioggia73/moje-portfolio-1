@@ -14,24 +14,54 @@ import AboutMe from './pages/AboutMe';
 import ProjectsPage from './pages/ProjectsPage';
 import ErrorPage from './pages/ErrorPage';
 import Overlay from './components/Overlay';
+//import {AppContext} from './context/context';
 
 function App() {
 
-  const [isOpen, setIsOpen] = React.useState(false);
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen)
-  };
+    // const isOpen = useContext(AppContext);
+    // const toggleSidebar = useContext(AppContext);
+
+  // const [isOpen, setIsOpen] = React.useState(false);
+  // const toggleSidebar = () => {
+  //   setIsOpen(!isOpen)
+  // };
 
   return (
+    // <div>
+    //   <GlobalStyles />
+    //   <Router>
+    //   <Navbar toggleSidebar = {toggleSidebar} />
+    //   <Sidebar isOpen= {isOpen} toggleSidebar = {toggleSidebar}  />
+    //     <Overlay  isOpen = {isOpen} />
+    //     <Switch>
+    //       <Route path="/" exact>
+    //         <HomePage isOpen={isOpen} />
+    //       </Route>
+    //       <Route path="/contact">
+    //         <ContactPage />
+    //       </Route>
+    //       <Route path="/about">
+    //         <AboutMe />
+    //       </Route>
+    //       <Route path="/projects">
+    //         <ProjectsPage />
+    //       </Route>
+    //       <Route path="*">
+    //         <ErrorPage />
+    //       </Route>
+    //     </Switch>
+    //   </Router>
+    // </div>
+
     <div>
       <GlobalStyles />
       <Router>
-      <Navbar toggleSidebar = {toggleSidebar} />
-      <Sidebar isOpen= {isOpen} toggleSidebar = {toggleSidebar}  />
-        <Overlay  isOpen = {isOpen} />
+      <Navbar  />
+      <Sidebar  />
+        <Overlay  />
         <Switch>
           <Route path="/" exact>
-            <HomePage isOpen={isOpen} />
+            <HomePage  />
           </Route>
           <Route path="/contact">
             <ContactPage />

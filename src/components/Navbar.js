@@ -1,22 +1,39 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import NavLinks from  '../constants/links';
 import { FaBars } from "react-icons/fa";
+import {AppContext} from '../context/context';
 
 
-const Navbar = ({toggleSidebar}) => {
+// const Navbar = ({toggleSidebar}) => {
 
-    return (
-          <Wrapper>
-              <nav className='navbar-container'>
-                  <logo>LOGO</logo>
-                  <button className='toggle-btn' onClick={toggleSidebar} >
-                    <FaBars />
-                    </button>
-                  <NavLinks styleClass='nav-links' onClick={toggleSidebar}/>
-              </nav>
-          </Wrapper>
-    )
+//     return (
+//           <Wrapper>
+//               <nav className='navbar-container'>
+//                   <logo>LOGO</logo>
+//                   <button className='toggle-btn' onClick={toggleSidebar} >
+//                     <FaBars />
+//                     </button>
+//                   <NavLinks styleClass='nav-links' onClick={toggleSidebar}/>
+//               </nav>
+//           </Wrapper>
+//     )
+// };
+
+const Navbar = () => {
+
+  const {toggleSidebar} = useContext(AppContext)
+  return (
+    <Wrapper>
+      <nav className="navbar-container">
+        <logo>LOGO</logo>
+        <button className="toggle-btn" onClick={toggleSidebar}>
+          <FaBars />
+        </button>
+        <NavLinks styleClass="nav-links" onClick={toggleSidebar} />
+      </nav>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.nav`

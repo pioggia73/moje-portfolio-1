@@ -1,25 +1,49 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import NavLinks from '../constants/links';
 import SocialLinks from '../constants/socialLinks';
 import {FaTimes} from 'react-icons/fa';
+import {AppContext} from '../context/context';
 
-const Sidebar = ({isOpen, toggleSidebar} ) => {
-    return (
-      <Wrapper>
-        <aside className={`sidebar ${isOpen ? "show-sidebar" : ""}`}>
-          <div>
-            <button onClick={toggleSidebar} className="close-btn">
-              <FaTimes />
-            </button>
-          </div>
-          <div>
-            <NavLinks styleClass = {`${isOpen ? "sidebar-links" : ""}`} />
-            <SocialLinks styleClass = {`${isOpen ? 'sidebar-icons' : ''}`} />
-          </div>
-        </aside>
-      </Wrapper>
-    );
+// const Sidebar = ({isOpen, toggleSidebar} ) => {
+
+//     return (
+//       <Wrapper>
+//         <aside className={`sidebar ${isOpen ? "show-sidebar" : ""}`}>
+//           <div>
+//             <button onClick={toggleSidebar} className="close-btn">
+//               <FaTimes />
+//             </button>
+//           </div>
+//           <div>
+//             <NavLinks styleClass = {`${isOpen ? "sidebar-links" : ""}`} />
+//             <SocialLinks styleClass = {`${isOpen ? 'sidebar-icons' : ''}`} />
+//           </div>
+//         </aside>
+//       </Wrapper>
+//     );
+// };
+
+const Sidebar = () => {
+
+  const {isOpen, toggleSidebar} = useContext(AppContext);
+ 
+ 
+  return (
+    <Wrapper>
+      <aside className={`sidebar ${isOpen ? "show-sidebar" : ""}`}>
+        <div>
+          <button onClick={toggleSidebar} className="close-btn">
+            <FaTimes />
+          </button>
+        </div>
+        <div ocClick={toggleSidebar}>
+          <NavLinks styleClass={`${isOpen ? "sidebar-links" : ""}`}  />
+          <SocialLinks styleClass={`${isOpen ? "sidebar-icons" : ""}`} />
+        </div>
+      </aside>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`
@@ -89,8 +113,6 @@ const Wrapper = styled.div`
     transform: scaleX(1);
   };
 
-
-
   .sidebar-links li {
     list-style: none;
     animation: slideRight 0.75s ease-in-out 0.3s forwards;
@@ -123,8 +145,6 @@ const Wrapper = styled.div`
       opacity: 1;
     }
   };
-
-
 
   // ######  SOCIAL ICONS
 

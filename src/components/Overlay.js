@@ -1,14 +1,25 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
+import {AppContext} from '../context/context';
 
-const Overlay = ({isOpen}) => {
-    return (
-        <Wrapper>
-            <div className = {`${isOpen ? 'overlay' : ''}`} >
+// const Overlay = ({isOpen}) => {
+//     return (
+//         <Wrapper>
+//             <div className = {`${isOpen ? 'overlay' : ''}`} >
 
-            </div>
-        </Wrapper>
-    )
+//             </div>
+//         </Wrapper>
+//     )
+// };
+
+const Overlay = () => {
+
+    const {isOpen} = useContext(AppContext);
+  return (
+    <Wrapper>
+      <div className={`${isOpen ? "overlay" : ""}`}></div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`

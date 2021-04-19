@@ -94,7 +94,7 @@ h3 {
 
 .overlay {
     background-color: var(--clr-white);
-}
+};
 
 
 
